@@ -2,6 +2,7 @@
 namespace SmsMan\Adapter\Skebby;
 
 use Zend\Http\Client;
+use Zend\Http\Request;
 use Zend\ServiceManager\AbstractFactoryInterface;
 use Zend\ServiceManager\AbstractPluginManager;
 use Zend\ServiceManager\ServiceLocatorInterface;
@@ -73,8 +74,9 @@ class SkebbyAdapterAbstractFactory implements AbstractFactoryInterface
         }
 
         $config = $this->getConfig($serviceLocator)[$requestedName];
-        $client = new Client($config['uri']);
-        $adapter = new SkebbyAdapter($client);
+        $request = new Request($config['uri']);
+        $request->setUri($config['uri']);
+        $adapter = new SkebbyAdapter($request);
         $adapter->getPassword($config['password']);
         $adapter->setUsername($config['username']);
         return $adapter;

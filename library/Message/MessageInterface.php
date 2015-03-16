@@ -11,13 +11,7 @@ use SmsMan\Sender\SenderInterface;
 interface MessageInterface extends SenderAwareInterface, ReceiverListAwareInterface
 {
     /**
-     * @return SenderInterface
+     * @return string
      */
-    public function getSenderPrototype();
-
-    /**
-     * @param SenderInterface $sender
-     * @return $this
-     */
-    public function setSenderPrototype(SenderInterface $sender);
+    public function getBody();
 } 

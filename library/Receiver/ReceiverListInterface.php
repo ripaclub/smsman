@@ -1,12 +1,12 @@
 <?php
 namespace SmsMan\Receiver;
 
-use SmsMan\AbstractInterface;
+use SmsMan\ListInterface;
 
 /**
  * Interface ReceiverListInterface
  */
-interface ReceiverListInterface extends AbstractInterface
+interface ReceiverListInterface extends ListInterface
 {
     /**
      * @param ReceiverInterface $receiver

@@ -19,8 +19,7 @@ class Service implements ServiceInterface
     protected $messagePrototype;
 
     /**
-     * @param AdapterInterface $adapter
-     * @param MessageInterface $messagePrototype
+     * {@inheritdoc}
      */
     public function __construct(AdapterInterface $adapter, MessageInterface $messagePrototype = null)
     {
@@ -32,12 +31,11 @@ class Service implements ServiceInterface
 
 
     /**
-     * @param MessageInterface $message
-     * @return mixed
+     * {@inheritdoc}
      */
     public function send(MessageInterface $message)
     {
-        // TODO: Implement send() method.
+        return $this->adapter->send($message);
     }
 
     /**
@@ -49,7 +47,7 @@ class Service implements ServiceInterface
     }
 
     /**
-     * @param MessageInterface $message
+     * {@inheritdoc}
      */
     protected function setMessagePrototype(MessageInterface $message)
     {

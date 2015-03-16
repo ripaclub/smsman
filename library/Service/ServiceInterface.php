@@ -3,6 +3,7 @@ namespace SmsMan\Service;
 
 use SmsMan\Adapter\AdapterInterface;
 use SmsMan\Message\MessageInterface;
+use Zend\Http\Response;
 
 
 /**
@@ -21,7 +22,7 @@ interface ServiceInterface
 
     /**
      * @param MessageInterface $message
-     * @return mixed
+     * @return Response
      */
     public function send(MessageInterface $message);
 

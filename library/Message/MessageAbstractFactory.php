@@ -6,6 +6,9 @@ use Zend\ServiceManager\AbstractFactoryInterface;
 use Zend\ServiceManager\AbstractPluginManager;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
+/**
+ * Class MessageAbstractFactory
+ */
 class MessageAbstractFactory implements AbstractFactoryInterface
 {
     /**
@@ -68,10 +71,9 @@ class MessageAbstractFactory implements AbstractFactoryInterface
         }
 
         $config = $this->getConfig($serviceLocator)[$requestedName];
-        $senderPrototype = new Sender($config['sender']['cell_phone'], $config['sender']['alias']);
+        $senderPrototype = new Sender($config['sender']);
 
-        $message = new Message();
-        $message->setSenderPrototype($senderPrototype);
+        $message = new Message($senderPrototype);
 
         return $message;
     }

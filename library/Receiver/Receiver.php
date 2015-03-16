@@ -3,6 +3,7 @@ namespace SmsMan\Receiver;
 
 use SmsMan\AliasAwareTrait;
 use SmsMan\CellPhoneAwareTrait;
+use SmsMan\OptionsConstructTrait;
 
 /**
  * Class Receiver
@@ -12,6 +13,7 @@ use SmsMan\CellPhoneAwareTrait;
  */
 class Receiver implements ReceiverInterface
 {
-    use CellPhoneAwareTrait;
     use AliasAwareTrait;
-} 
+    use CellPhoneAwareTrait;
+    use OptionsConstructTrait;
+}

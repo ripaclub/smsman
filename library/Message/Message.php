@@ -28,6 +28,14 @@ class Message implements MessageInterface
      */
     protected $senderPrototype;
 
+    function __construct(Sender $senderPrototype = null)
+    {
+        if ($senderPrototype) {
+            $this->senderPrototype = $senderPrototype;
+        }
+    }
+
+
     /**
      * @return ReceiverList
      */
@@ -57,21 +65,17 @@ class Message implements MessageInterface
         return $this;
     }
 
-    /**
-     * @return SenderInterface
-     */
-    public function getSenderPrototype()
+    public function getSender()
     {
-        return clone $this->senderPrototype;
+        if (!$this->sender) {
+            if ($this->senderPrototype) {
+                $this->sender = clone $this->senderPrototype;
+            } else {
+                $this->sender = new Sender();
+            }
+        }
+        return $this->sender;
     }
 
-    /**
-     * @param SenderInterface $sender
-     * @return $this
-     */
-    public function setSenderPrototype(SenderInterface $sender)
-    {
-        $this->senderPrototype = $sender;
-        return $this;
-    }
+
 }

@@ -4,7 +4,7 @@ namespace SmsMan;
 /**
  * Class AbstractList
  */
-abstract class AbstractList implements AbstractInterface
+abstract class AbstractList implements ListInterface
 {
     /**
      * @var array
